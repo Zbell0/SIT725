@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--Import Google Icon Font-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!--Import materialize.css-->
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="css/materialize.min.css"
+      media="screen,projection"
+    />
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      /* Reset some default styles */
+      body,
+      h5,
+      p,
+      input,
+      button {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #e0f7fa;
+      }
+
+      .container {
+        background: #ffffff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        max-width: 400px;
+        width: 100%;
+      }
+
+      h5 {
+        color: #00796b;
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+
+      .num-section {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+      }
+
+      .num-section > div {
+        flex: 1;
+        margin: 0 30px;
+      }
+
+      .num-section p {
+        font-size: 18px;
+        color: #00796b;
+        margin-bottom: 5px;
+      }
+
+      .num-section input {
+        width: 100%;
+        padding: 10px;
+
+        font-size: 16px;
+      }
+
+      button {
+        background-color: #00796b;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        font-size: 16px;
+        cursor: pointer;
+        margin: 0 5px; /
+      }
+
+      button:hover {
+        background-color: #004d40; /
+      }
+
+      .result {
+        margin-top: 20px;
+        font-size: 20px;
+        font-weight: bold;
+        color: #00796b;
+      }
+      .error {
+        margin-top: 20px;
+        font-size: 20px;
+        font-weight: bold;
+        color:red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h5>Simple Mathmatics</h5>
+      <div class="num-section">
+        <div class="num1">
+          <p>Num1:</p>
+          <input type="number" name="" id="num1" />
+        </div>
+        <div class="num2">
+          <p>Num2:</p>
+          <input type="number" name="" id="num2" />
+        </div>
+      </div>
+      <div>
+        <button class="addBtn">Add</button>
+        <button class="resetBtn">Reset</button>
+      </div>
+      <div class="result"></div>
+      <div class="error"></div>
+    </div>
+  </body>
+  <body>
+    <!--JavaScript at end of body for optimized loading-->
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+    <!-- Compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  </body>
+</html>
