@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Import Google Icon Font -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- Import materialize.css -->
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="css/materialize.min.css"
+      media="screen,projection"
+    />
+
+    <!-- Let browser know website is optimized for mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body,
+      h5,
+      p,
+      input,
+      button {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+
+        height: 100vh;
+        background-color: #e0f7fa;
+      }
+
+      .containe {
+        background: #ffffff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        max-width: 700px;
+        width: 100%;
+        position: relative;
+        margin: 150px auto;
+      }
+
+      h5 {
+        color: #00796b;
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+
+      .num-section {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+      }
+
+      .num-section > div {
+        flex: 1;
+        margin: 0 30px;
+      }
+
+      .num-section p {
+        font-size: 18px;
+        color: #00796b;
+        margin-bottom: 5px;
+      }
+
+      .num-section input {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+      }
+
+      button {
+        background-color: #00796b;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        font-size: 16px;
+        cursor: pointer;
+        margin: 0 5px;
+      }
+
+      button:hover {
+        background-color: #004d40;
+      }
+
+      .result {
+        margin-top: 20px;
+        font-size: 20px;
+        font-weight: bold;
+        color: #00796b;
+      }
+      .error {
+        margin-top: 20px;
+        font-size: 20px;
+        font-weight: bold;
+        color: red;
+      }
+
+      .history-container {
+        margin-top: 20px;
+        text-align: center;
+      }
+
+      .historyBtn {
+        color: white;
+        margin-right: 100px;
+        font-size: 16px;
+        cursor: pointer;
+        margin-bottom: 20px;
+      }
+
+      /* Table styles */
+      .history-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+
+      .history-table th,
+      .history-table td {
+        border: 1px solid #ddd;
+        padding: 8px;
+      }
+
+      .history-table th {
+        background-color: #00796b;
+        color: white;
+      }
+
+      .history-table tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+
+      .history-table tr:hover {
+        background-color: #ddd;
+      }
+
+      .history-table td {
+        text-align: center;
+      }
+      .logo {
+        font-size: xx-large;
+        margin-left: 50px;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      }
+      .nav-wrapper {
+        display: flex;
+        justify-content: space-between;
+
+        background-color: black;
+      }
+    </style>
+  </head>
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="logo">Simple Mathmatics</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a class="historyBtn">Show History</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <body>
+    <div class="containe">
+      <!-- Moved to the top -->
+
+      <div class="num-section">
+        <div class="num1">
+          <p>Num1:</p>
+          <input type="number" id="num1" />
+        </div>
+        <div class="num2">
+          <p>Num2:</p>
+          <input type="number" id="num2" />
+        </div>
+      </div>
+      <div>
+        <button class="addBtn">Add</button>
+        <button class="resetBtn">Reset</button>
+      </div>
+      <div class="result"></div>
+      <div class="error"></div>
+      <div class="history-container">
+        <table class="history-table">
+          <thead>
+            <tr>
+              <th>Num1</th>
+              <th>Num2</th>
+              <th>Sum</th>
+            </tr>
+          </thead>
+          <tbody class="history-body">
+            <!-- Rows  -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <footer class="page-footer" style="background-color: black">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5 class="white-text">Let's add two numbers</h5>
+            <p class="grey-text text-lighten-4">
+              We can help with adding big two numbers
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container">© 2024 Ella Kim</div>
+      </div>
+    </footer>
+
+    <!-- JavaScript at end of body for optimized loading -->
+    <script src="js/script.js"></script>
+    <!-- Compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  </body>
+</html>
