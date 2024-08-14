@@ -58,7 +58,14 @@ historyBtn.addEventListener('click', async () => {
 
 function displayHistory(results) {
   const historyBody = document.querySelector('.history-body');
-  historyBody.innerHTML = '';
+  historyBody.innerHTML = `<thead>
+      <tr>
+        <th>Num1</th>
+        <th>Num2</th>
+        <th>Sum</th>
+      </tr>
+    </thead>
+  `;
 
   results.forEach((result) => {
     const row = document.createElement('tr');
