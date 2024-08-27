@@ -1,49 +1,29 @@
-const express = require('express');
-const { MongoClient } = require('mongodb');
-const bodyParser = require('body-parser');
-const cors = require('cors');
+// index.js
+import express from 'express';
+import cors from 'cors';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import calculateRoutes from './routes/calculateRoutes.js';
+
+// Use __dirname equivalent in ES Modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 const port = 3000;
 
-app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.json());
 app.use(cors());
 
-const uri =
-  'mongodb+srv://but05051:RRyCZ2G76zxLTPnT@cluster0.xvvnnuj.mongodb.net/math?retryWrites=true&w=majority';
-const client = new MongoClient(uri, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'main.html'));
 });
 
-async function connectToMongo() {
-  await client.connect();
-  console.log('Connected to MongoDB Atlas');
-}
-
-connectToMongo();
-
-app.post('/api/storeResult', async (req, res) => {
-  const { num1, num2, sum } = req.body;
-
-  const database = client.db('math');
-  const collection = database.collection('results');
-  const result = await collection.insertOne({ num1, num2, sum });
-
-  res.status(200).json({
-    message: 'Result stored successfully',
-    resultId: result.insertedId,
-  });
-});
-
-app.get('/api/results', async (req, res) => {
-  const database = client.db('math');
-  const collection = database.collection('results');
-  const results = await collection.find({}).toArray();
-
-  res.status(200).json(results);
-});
+app.use('/api/calculate', calculateRoutes);
 
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
 });
+
+export default app;

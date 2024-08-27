@@ -1,19 +1,22 @@
 const { MongoClient } = require('mongodb');
-const uri =
-  'mongodb+srv://but05051:RRyCZ2G76zxLTPnT@cluster0.xvvnnuj.mongodb.net/math?retryWrites=true&w=majority';
+const uri = 'mongodb://localhost:27017';
+
 const client = new MongoClient(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
 
 async function connectToMongo() {
-  await client.connect();
-  console.log('Connected to MongoDB Atlas');
+  try {
+    await client.connect();
+    console.log('Connected to local MongoDB');
+  } catch (err) {
+    console.error('Failed to connect to local MongoDB', err);
+  }
 }
 
-connectToMongo();
-
 const storeResults = async (num1, num2, sum) => {
+  await connectToMongo();
   const database = client.db('math');
   const collection = database.collection('results');
   const result = await collection.insertOne({ num1, num2, sum });

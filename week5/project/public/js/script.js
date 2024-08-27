@@ -34,7 +34,7 @@ resetBtn.addEventListener('click', () => {
 });
 
 async function storeResult(num1, num2, sum) {
-  await fetch('http://localhost:3000/api/storeResult', {
+  await fetch('http://localhost:3000/api/calculate/storeResult', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -49,7 +49,7 @@ historyBtn.addEventListener('click', async () => {
   if (isVisible) {
     historyContainer.style.display = 'none';
   } else {
-    const response = await fetch('http://localhost:3000/api/results');
+    const response = await fetch('http://localhost:3000/api/calculate/result');
     const results = await response.json();
     displayHistory(results);
     historyContainer.style.display = 'block';
