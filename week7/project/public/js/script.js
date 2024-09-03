@@ -39,8 +39,6 @@ const addTwoNum = (n1, n2) => {
 };
 
 resetBtn.addEventListener('click', () => {
-  socket.disconnect();
-  socket = io();
   location.reload();
   setupSocketListeners(socket);
 });
